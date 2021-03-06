@@ -1,5 +1,15 @@
 @import 'bootstrap';
 
+:root{
+  --purple:#8C52E6;
+  --gray: #878686;
+  --white:#fff;
+  --bg-form:#FBFBFB;
+  --green:#68DE5A;
+  --blue-value: #007bff;
+  --dash-btn: #639bd0;
+}
+
 *{
   outline: 0;
   margin: 0;
@@ -9,5 +19,5 @@
 }
 
 body {
-   background-color: #8C52E6;
+   background-color: var(--purple);
 }

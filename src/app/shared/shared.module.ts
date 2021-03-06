@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonFieldComponent } from './components/button-field/button-field.component';
-import { InputFieldComponent } from './components/input-field/input-field.component';
+import { SubmitButtonFieldComponent } from './components/submit-button-field/submitButton-field.component';
+import { InputTextFieldComponent } from './components/input-text-field/inputText-field.component';
 
 @NgModule({
   declarations: [
-    ButtonFieldComponent,
-    InputFieldComponent,
+    SubmitButtonFieldComponent,
+    InputTextFieldComponent,
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    ButtonFieldComponent,
-    InputFieldComponent,
+    SubmitButtonFieldComponent,
+    InputTextFieldComponent,
   ],
 })
 export class SharedModule { }

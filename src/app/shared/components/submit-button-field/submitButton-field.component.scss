@@ -1,0 +1,28 @@
+button{
+
+  cursor: pointer;
+
+  background: #fff;
+
+  width: 26vw;
+  height: 8vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  transition: background-color 0.6s;
+
+  border-radius: 10rem;
+  border: 2px var(--purple) solid;
+
+  p{
+    color: var(--purple);
+    margin:auto 1rem;
+  }
+
+}
+
+button:hover{
+  background-color: var(--green);
+}
