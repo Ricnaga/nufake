@@ -23,14 +23,31 @@
 
     <div class="access__formFields">
       <p>Peça sua conta e cartão de crédito Gama Bank</p>
-      <form>
-        <input-text-field [customPlaceHolder]="'Digita seu CPF'"></input-text-field>
-        <input-text-field [customPlaceHolder]="'Escolha um nome de usuário'"></input-text-field>
-        <input-text-field [customPlaceHolder]="'Nome completo'"></input-text-field>
-        <input-text-field [customPlaceHolder]="'Digite sua senha'"></input-text-field>
-        <input-text-field [customPlaceHolder]="'Confirme sua senha'"></input-text-field>
+      <form #createUser="ngForm" (ngSubmit)="onSubmit(createUser)">
+
+        <input-text-field [inputName]="'cpf'" [(inputValue)]="cpf" [customType]="'text'"
+          [customPlaceHolder]="'Digita seu CPF'">
+        </input-text-field>
+
+        <input-text-field [inputName]="'user'" [(inputValue)]="user" [customType]="'text'"
+          [customPlaceHolder]="'Escolha um nome de usuário'">
+        </input-text-field>
+
+        <input-text-field [inputName]="'name'" [(inputValue)]="name" [customType]="'text'"
+          [customPlaceHolder]="'Nome completo'">
+        </input-text-field>
+
+        <input-text-field [inputName]="'password'" [(inputValue)]="password" [customType]="'password'"
+          [customPlaceHolder]="'Digite sua senha'">
+        </input-text-field>
+
+        <input-text-field [inputName]="'confirmPassword'" [(inputValue)]="confirmPassword" [customType]="'password'"
+          [customPlaceHolder]="'Confirme sua senha'">
+        </input-text-field>
+
         <submit-button-field [customText]="'Continuar'"></submit-button-field>
       </form>
+
     </div>
   </div>
 

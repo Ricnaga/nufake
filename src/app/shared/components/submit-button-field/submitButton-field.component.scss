@@ -16,6 +16,8 @@ button{
   border-radius: 10rem;
   border: 2px var(--purple) solid;
 
+  margin: 1vw auto;
+
   p{
     color: var(--purple);
     margin:auto 1vw;
@@ -25,4 +27,12 @@ button{
 
 button:hover{
   background-color: var(--green);
+}
+
+@media(max-width:760px){
+  button{
+    width: 72vw;
+    height: 6vh;
+  }
+
 }

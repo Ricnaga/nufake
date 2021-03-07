@@ -50,7 +50,7 @@ export class TokenService {
       return this.token;
     }
 
-    return 'TOKEN INVALIDO';
+    return null;
   }
 
   setData(cpf:string) {
@@ -62,7 +62,6 @@ export class TokenService {
       return true;
     }
 
-    console.log(this.getToken());
     return false;
   }
 }
