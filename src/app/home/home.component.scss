@@ -19,7 +19,6 @@
 
     img{
       width: 290px;
-
     }
 
   }
@@ -90,17 +89,22 @@
     }
 
     &__formFields{
-       background: #FBFBFB;
-       border-radius: 8px;
+      background: #FBFBFB;
+      border-radius: 8px;
 
-       width: 30vw;
-       height: 72vh;
+      width: 30vw;
+      height: 70vh;
 
-       margin-right: 2.8vw;
-       padding:2vh 1.8vw;
+      margin-right: 2.8vw;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 2vw;
 
       p{
-         margin: 2vw auto;
          font-size: 1.4vw;
          font-weight: 500;
       }
@@ -113,9 +117,6 @@
     }
 
    }
-}
-
-@media(max-width:760px) {
 }
 
 .frame2{
@@ -197,7 +198,6 @@
     justify-content: space-evenly;
 
     .description{
-
       width: 46%;
 
       &__Title, &__subDescription{
@@ -328,5 +328,205 @@
       }
     }
 
+  }
+}
+
+@media(max-width:760px) {
+  .frame1{
+    background-size: 90vw;
+
+    .gamaImg{
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 0.4em;
+    }
+
+    .access{
+      flex-direction: column;
+
+      &__loginLink{
+
+        width: 94vw;
+
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        &__text{
+          max-width: 94vw;
+          font-size: 4vw;
+          text-align: center;
+          line-height: 3vh;
+          margin: auto;
+        }
+
+        &__link{
+          width: 80vw;
+          margin: 0.4em;
+        }
+      }
+
+      &__formFields{
+        max-width: 760px;
+        width: 80vw;
+        height: 60vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: auto;
+
+        p{
+          margin: auto;
+          font-size: 3vw;
+       }
+      }
+    }
+  }
+
+  .frame2{
+
+    &__phone{
+      width: 100vw;
+      height: 50vh;
+
+      display: flex;
+      flex-direction: column;
+
+      &__black, &__white{
+        align-items: center;
+
+        &__title{
+          font-size: 4vh;
+         }
+
+         &__description{
+          font-size: 2vh;
+         }
+      }
+
+    }
+
+  }
+
+  .frame3{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .description{
+      width: 100vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      &__subDescription{
+        max-width: 90vw;
+        text-align: center;
+      }
+
+      &__price{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 28vw;
+
+        margin: 4vh auto;
+      }
+    }
+
+  }
+
+  .frame4{
+    .description{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+
+      height: 90vh;
+      margin: auto;
+
+      &__Title{
+        width: 90vw;
+        height: 30vh;
+
+        text-align: center;
+        font-size: 12vw;
+        line-height: 12vw;
+      }
+
+      &__subDescription{
+        width: 90vw;
+        height: 30vh;
+
+        display: flex;
+        justify-content: center;
+
+        font-size: 6vw;
+        line-height: 6vw;
+        text-align: center;
+      }
+    }
+  }
+
+  .frame5{
+
+    .container{
+     display: flex;
+     align-items: center;
+     flex-direction: column-reverse;
+
+
+
+      &__cellphone{
+        img{
+          width: 100vw;
+          height: 50vh;
+        }
+
+      }
+
+      &__description{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__subDescription{
+          width: 100vw;
+
+          display: flex;
+          justify-content: center;
+
+          text-align: center;
+          font-size: 8vw;
+          line-height: 8vw;
+        }
+
+        &__address{
+          width: 100vw;
+
+          display: flex;
+          align-items: center;
+
+          text-align: left;
+          line-height: 1vw;
+          font-size: 3vw;
+          font-weight: 500;
+        }
+      }
+    }
   }
 }
