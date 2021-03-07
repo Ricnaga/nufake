@@ -3,15 +3,28 @@
 
   width: 100vw;
   height: 100vh;
-  background: url('../../assets/happy.svg') no-repeat fixed bottom ;
-  background-size: 50%;
+  background: url('../../assets/happy.svg') no-repeat fixed bottom;
+  background-size: 50vw;
 
-  > img{
-    position: absolute;
-    margin: 2.2rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+
+  .gamaImg{
+    width: 56vw;
+    height: 18vh;
+
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+
+    img{
+      width: 290px;
+
+    }
+
   }
 
-  .access{
+   .access{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +32,7 @@
     height: 100%;
 
     &__loginLink{
-      margin-left: 4rem;
+       margin-left: 4vw;
 
       &__text{
         max-width: 280px;
@@ -31,77 +44,78 @@
         font-size: 32px;
 
         > p{
-          margin-bottom: 2rem;
+           margin-bottom: 2vw;
         }
       }
 
       &__link{
-        cursor: pointer;
+         cursor: pointer;
 
-        background: #fff;
+         background: #fff;
 
-        border-radius: 30px;
+         border-radius: 30px;
 
-        width: 20vw;
-        height: 54px;
+         width: 20vw;
+         height: 54px;
 
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
 
-        transition: background-color 0.6s;
+         transition: background-color 0.6s;
 
         a{
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
 
-          margin: 0 2rem;
-          width: 96%;
-          text-decoration: none;
+           margin: 0 2rem;
+           width: 96%;
+           text-decoration: none;
 
-          font-size: 1.1rem;
-          font-weight: 400;
+           font-size: 100%;
+           font-weight: 400;
 
           p{
-            color: var(--purple);
-            margin:auto 0;
+             color: var(--purple);
+             margin:auto 0;
           }
 
         }
       }
 
       &__link:hover{
-        background-color: var(--green);
+         background-color: var(--green);
       }
     }
 
     &__formFields{
-      background: #FBFBFB;
-      border-radius: 8px;
+       background: #FBFBFB;
+       border-radius: 8px;
 
-      width: 30vw;
-      height: 78vh;
+       width: 30vw;
+       height: 72vh;
 
-      margin-right: 2.8rem;
-      padding:0 1.8rem;
+       margin-right: 2.8vw;
+       padding:2vh 1.8vw;
 
-      h4{
-        margin: 3rem auto;
+      p{
+         margin: 2vw auto;
+         font-size: 1.4vw;
+         font-weight: 500;
       }
 
       form{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
       }
 
     }
 
-  }
+   }
+}
 
-
+@media(max-width:760px) {
 }
 
 .frame2{
@@ -184,6 +198,8 @@
 
     .description{
 
+      width: 46%;
+
       &__Title, &__subDescription{
       color: #FFFFFF;
       }
@@ -211,7 +227,7 @@
         height: 26%;
 
         font-weight: 500;
-        font-size: 12em;
+        font-size: 12vw;
         display: flex;
         align-items: center;
       }
@@ -241,8 +257,8 @@
   &__Title{
 
     font-weight: 700;
-    font-size: 2.6em;
-    line-height: 2.4em;
+    font-size: 2.6vw;
+    line-height: 2.4vw;
 
     display: flex;
     align-items: center;
@@ -251,8 +267,8 @@
   &__subDescription{
 
     font-weight: 500;
-    font-size: 1.4em;
-    line-height: 1.2em;
+    font-size: 1.4vw;
+    line-height: 3.6vh;
     display: flex;
     align-items: center;
   }
@@ -288,8 +304,8 @@
         height: 22vh;
 
         font-weight: 700;
-        font-size: 2.6em;
-        line-height: 1.2em;
+        font-size: 2.6vw;
+        line-height: 6vh;
       }
 
       &__address{
@@ -299,15 +315,17 @@
         height: 14vh;
 
         font-weight: 300;
-        font-size: 0.9em;
-        line-height: 1.1em;
+        font-size: 0.9vw;
+        line-height: 2vh;
       }
 
     }
 
     &__cellphone{
-      width: 28vw;
-      height: 80vh;
+      img{
+        width: 28vw;
+        height: 80vh;
+      }
     }
 
   }
