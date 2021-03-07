@@ -25,25 +25,27 @@
       <p>Peça sua conta e cartão de crédito Gama Bank</p>
       <form #createUser="ngForm" (ngSubmit)="onSubmit(createUser)">
 
-        <input-text-field [inputName]="'cpf'" [(inputValue)]="cpf" [customType]="'text'"
-          [customPlaceHolder]="'Digita seu CPF'">
-        </input-text-field>
+        <input [class.is-invalid]="showError('cpf', createUser)" type="number" name="cpf" [(ngModel)]="cpf"
+          placeholder="Digita seu CPF" required>
+        <div class="invalid-feedback" *ngIf="showError('cpf', createUser)">CPF Inválido</div>
 
-        <input-text-field [inputName]="'user'" [(inputValue)]="user" [customType]="'text'"
-          [customPlaceHolder]="'Escolha um nome de usuário'">
-        </input-text-field>
+        <input [class.is-invalid]="showError('user', createUser)" type="text" name="user" [(ngModel)]="user"
+          placeholder="Escolha um nome de usuário" required>
+        <p class="invalid-feedback" *ngIf="showError('user', createUser)">Usuário Inválido
+        </p>
 
-        <input-text-field [inputName]="'name'" [(inputValue)]="name" [customType]="'text'"
-          [customPlaceHolder]="'Nome completo'">
-        </input-text-field>
+        <input [class.is-invalid]="showError('name', createUser)" type="text" name="name" [(ngModel)]="name"
+          placeholder="Nome completo" required>
+        <p class="invalid-feedback" *ngIf="showError('name', createUser)">Nome Inválido</p>
 
-        <input-text-field [inputName]="'password'" [(inputValue)]="password" [customType]="'password'"
-          [customPlaceHolder]="'Digite sua senha'">
-        </input-text-field>
+        <input [class.is-invalid]="showError('password', createUser)" type="password" name="password"
+          [(ngModel)]="password" placeholder="Digite sua senha" required>
+        <p class="invalid-feedback" *ngIf="showError('password', createUser)">Senha inválida</p>
 
-        <input-text-field [inputName]="'confirmPassword'" [(inputValue)]="confirmPassword" [customType]="'password'"
-          [customPlaceHolder]="'Confirme sua senha'">
-        </input-text-field>
+        <input [class.is-invalid]="showError('confirmPassword', createUser)" type="password"
+          name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirme sua senha" required>
+        <p class="invalid-feedback" *ngIf="showError('confirmPassword', createUser)">Confirmação de senha
+          Inválida</p>
 
         <submit-button-field [customText]="'Continuar'"></submit-button-field>
       </form>

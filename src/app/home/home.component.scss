@@ -104,6 +104,7 @@
 
       padding: 2vw;
 
+
       p{
          font-size: 1.4vw;
          font-weight: 500;
@@ -112,7 +113,42 @@
       form{
         display: flex;
         flex-direction: column;
+
+        input{
+          width: 26vw;
+          height: 5vh;
+
+          margin-bottom: 4%;
+
+          padding: 0.2em 0.8vw;
+
+          border: none;
+          border-bottom: 2px solid var(--gray);
+
+          transition: border-color 0.5s;
+
+          font-size: 1em;
+          font-weight: 400;
+        }
+
+        input:focus{
+          border-color:  #8C52E6;
+        }
       }
+
+      input.ng-invalid.ng-touched{
+        border-bottom: 3px red solid;
+      }
+
+      .invalid-feedback{
+        color: red;
+        font-size: 1vw;
+
+        margin: 0;
+        padding: 0;
+        height: 2.4vh;
+      }
+
 
     }
 
@@ -385,7 +421,18 @@
         p{
           margin: auto;
           font-size: 3vw;
-       }
+        }
+
+        form{
+          input{
+            width: 72vw;
+            font-size: 0.8em;
+          }
+        }
+
+        .invalid-feedback{
+          font-size: 0.6em;
+        }
       }
     }
   }
