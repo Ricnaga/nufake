@@ -88,8 +88,8 @@
       }
     }
 
-    &__formFields{
-      background: #FBFBFB;
+    &__homeFormFields{
+      background: var(--bg-form);
       border-radius: 8px;
 
       width: 30vw;
@@ -132,7 +132,7 @@
         }
 
         input:focus{
-          border-color:  #8C52E6;
+          border-color:  var(--purple);
         }
       }
 
@@ -143,6 +143,7 @@
       .invalid-feedback{
         color: red;
         font-size: 1vw;
+        font-weight: 500;
 
         margin: 0;
         padding: 0;
@@ -216,7 +217,7 @@
 
     &__white{
       justify-content: center;
-      background: #F8F8F8;
+      background: var(--bg-form);
 
       &__title, &__description{
         color:#1D1D1D;
@@ -237,7 +238,7 @@
       width: 46%;
 
       &__Title, &__subDescription{
-      color: #FFFFFF;
+      color: #FFF;
       }
 
       &__Title{
@@ -407,7 +408,7 @@
         }
       }
 
-      &__formFields{
+      &__homeFormFields{
         max-width: 760px;
         width: 80vw;
         height: 60vh;

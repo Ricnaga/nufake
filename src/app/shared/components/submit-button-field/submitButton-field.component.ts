@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'submit-button-field',
-  template: `<button type="submit" class="formButton">
+  template: `<button class="btnForm" type="submit" class="formButton">
   <p>{{customText}}</p>
   <img src="assets/seta-acessar.svg" alt="Acessar">
 </button>`,

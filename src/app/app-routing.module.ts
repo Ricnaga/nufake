@@ -1,28 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
-import { MemberAreaComponent } from './member-area/member-area.component';
-import { RecoverypassComponent } from './recoverypass/recoverypass.component';
 import { UsersGuard } from './shared/guards/users.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent,
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
     canActivate: [UsersGuard],
   },
   {
     path: 'recovery',
-    component: RecoverypassComponent,
+    loadChildren: () => import('./recoverypass/recoverypass.module').then((m) => m.RecoverypassModule),
     canActivate: [UsersGuard],
   },
   {
-    path: 'login', component: MemberAreaComponent,
+    path: 'login',
+    loadChildren: () => import('./member-area/member-area.module').then((m) => m.MemberAreaModule),
+    // canActivate: [MembersGuard],
   },
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    // canActivate: [MembersGuard],
   },
   {
     path: '',
@@ -30,7 +29,8 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: '**', component: ErrorComponent,
+    path: '**',
+    loadChildren: () => import('./error/error.module').then((m) => m.ErrorModule),
   },
 ];
 

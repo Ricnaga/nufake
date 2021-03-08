@@ -21,7 +21,7 @@
 
     </div>
 
-    <div class="access__formFields">
+    <div class="access__homeFormFields">
       <p>Peça sua conta e cartão de crédito Gama Bank</p>
       <form #createUser="ngForm" (ngSubmit)="onSubmit(createUser)">
 
@@ -44,8 +44,7 @@
 
         <input [class.is-invalid]="showError('confirmPassword', createUser)" type="password"
           name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirme sua senha" required>
-        <p class="invalid-feedback" *ngIf="showError('confirmPassword', createUser)">Confirmação de senha
-          Inválida</p>
+        <p class="invalid-feedback" *ngIf="showError('confirmPassword', createUser)">Confirmação de senha inválida</p>
 
         <submit-button-field [customText]="'Continuar'"></submit-button-field>
       </form>
