@@ -1,5 +1,5 @@
 export interface Cadastro{
-    
+
     cpf: number;
     login: string;
     nome: string;
@@ -8,4 +8,3 @@ export interface Cadastro{
     senha: string;
 
   }
-  

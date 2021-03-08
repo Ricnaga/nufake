@@ -3,5 +3,5 @@ export interface PlanoConta {
   id: number;
   login: string;
   padrao: boolean;
-  tipoMovimento: string;
+  tipoMovimento: 'D'| 'R' | 'TC' | 'TU';
 }

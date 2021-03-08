@@ -1,5 +1,5 @@
-import { Conta } from "./Conta.interface";
-import { Usuario } from "./usuario/Usuario.interface";
+import { Conta } from './Conta.interface';
+import { Usuario } from './usuario/Usuario.interface';
 
 export interface Sessao {
   conta: Conta;

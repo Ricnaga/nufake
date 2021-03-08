@@ -53,10 +53,6 @@ export class TokenService {
     return null;
   }
 
-  setData(cpf:string) {
-    localStorage.setItem('cpf', cpf);
-  }
-
   isMember(): boolean {
     if (this.getUser() && this.getToken()) {
       return true;

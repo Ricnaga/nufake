@@ -3,5 +3,5 @@ export interface Conta {
   id: number;
   numero: string;
   saldo: number;
-  tipo: Array<"CC" | "CB">;
+  tipo: Array<'CC' | 'CB'>;
 }
