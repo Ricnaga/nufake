@@ -27,8 +27,8 @@ export class MemberAreaComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      usuario: ['', [Validators.required, Validators.minLength(5)]],
-      senha: ['', [Validators.required, Validators.minLength(8)]],
+      usuario: ['', [Validators.required, Validators.minLength(4)]],
+      senha: ['', [Validators.required, Validators.minLength(4)]],
     });
   }
 
