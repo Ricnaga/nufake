@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MembersGuard } from './shared/guards/members.guard';
 import { UsersGuard } from './shared/guards/users.guard';
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-    // canActivate: [MembersGuard],
+    canActivate: [MembersGuard],
   },
   {
     path: '',
