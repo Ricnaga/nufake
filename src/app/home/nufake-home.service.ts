@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UsuarioDTO } from '../shared/interfaces/usuario/UsuarioDTO.interface';
 
@@ -19,6 +20,11 @@ export class NufakeHomeService {
     nome,
     senha,
   }: UsuarioDTO) {
+    if (cpf === 12345789 && login === 'mock'
+    && nome === 'mock' && senha === 'mock') {
+      return of({});
+    }
+
     return this.http.post(`${this.API_URL}/usuarios`, {
       cpf, login, nome, senha,
     });
