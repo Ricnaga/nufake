@@ -50,7 +50,7 @@ export class TokenService {
       return this.token;
     }
 
-    return null;
+    return 'TOKEN INVÁLIDO';
   }
 
   isMember(): boolean {
