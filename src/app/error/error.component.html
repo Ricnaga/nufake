@@ -1,14 +1,23 @@
-<div class="layout-fundo">
-  <img class="logo" src="../../assets/logo-gama.png">
-  <div class="card" >
-    <div class="container">
-      <br><br>
-      <img src="../../assets/warning.png" class="card-img-top" alt="...">
-      <br><br>
-      <p class="texts">Oops, algo deu errado!<br>
-        Confirme seus dados e tente novamente!
-      </p>
-      <button class="button" routerLink="/home">Voltar</button>
+<div class="memberArea">
+
+  <div class="memberArea__gama-logo">
+    <img src="assets/{{imageLogo}}" alt="Gama Academy logo">
+  </div>
+
+  <div class="errorArea">
+    <img src="assets/warning.png" alt="erro">
+
+    <div class="errorArea__title">
+      <p>Oops, algo deu errado!</p>
+      <p>Página não encontrada</p>
+    </div>
+
+    <div class="errorArea__goBack">
+      <a class="btnForm" routerLink="/home" class="formButton">
+        <p>Voltar para home</p>
+      </a>
+
     </div>
   </div>
+
 </div>
