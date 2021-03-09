@@ -1,1 +1,32 @@
-<p>recoverypass works!</p>
+<div class="memberArea">
+
+  <div class="memberArea__gama-logo">
+    <img src="assets/{{imageLogo}}" alt="Gama Academy logo">
+  </div>
+
+  <div class="loginArea">
+    <div class="loginArea__title">
+      <h3>Esqueci minha senha</h3>
+      <p>Confirme seu seu nome de usuário e email. Em seguida você receberá uma senha provisória</p>
+    </div>
+
+    <div class="loginArea__formFields">
+      <form [formGroup]="recoveryForm">
+        <input class="form-control" [class.is-invalid]="showError('usuario')" type="text" placeholder="Seu nome de usuário"
+          formControlName="usuario">
+
+        <input class="form-control" [class.is-invalid]="showError('email')" type="email"
+          placeholder="Seu email cadastrado" formControlName="email">
+
+        <submit-button-field (click)="onSubmit()" customText="Redefinir a senha"></submit-button-field>
+      </form>
+
+      <div class="loginArea__formFields__links">
+        <a routerLink="/home">Ainda não sou cliente <img src="assets/seta-continuar.svg"
+            alt="Ainda não sou cliente"></a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
