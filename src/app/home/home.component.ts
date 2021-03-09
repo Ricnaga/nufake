@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
   }
 
   onResponseError() {
-    alert('Ocorreu um erro ao se cadastrar, por favor tente novamente');
+    this.router.navigate(['error']);
     throwError('Ocorreu um erro durante o cadastro, por favor tente novamente');
   }
 }

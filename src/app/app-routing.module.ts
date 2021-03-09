@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./member-area/member-area.module').then((m) => m.MemberAreaModule),
-    // canActivate: [MembersGuard],
+    canActivate: [UsersGuard],
   },
   {
     path: 'dashboard',

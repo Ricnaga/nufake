@@ -3,6 +3,7 @@ import {
   FormBuilder, FormControl, FormGroup, NgForm, Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { MemberAreaService } from './member-area.service';
 
@@ -75,7 +76,7 @@ export class MemberAreaComponent implements OnInit {
   }
 
   loginError(error: string) {
-    console.log(error);
-    alert('error');
+    this.router.navigate(['error']);
+    throwError('Ocorreu um erro durante o login, por favor tente novamente');
   }
 }
