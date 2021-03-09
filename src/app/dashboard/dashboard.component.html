@@ -8,9 +8,9 @@
 
       <p>Olá <strong>Usuário</strong>, seja bem vindo!</p>
 
-      <div class="main-content__welcome__buttons">
-        <button><img src="assets/refresh-cw.svg" alt="Refresh page"></button>
-        <button><img src="assets/log-out.svg" alt="Log out"></button>
+      <div class="main-content__welcome__links">
+        <a routerLink="/dashboard"><img src="assets/refresh-cw.svg" alt="Refresh page"></a>
+        <a routerLink="/login" (click)="logout()"><img src="assets/log-out.svg" alt="Log out"></a>
       </div>
     </div>
 
