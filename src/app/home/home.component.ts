@@ -8,7 +8,13 @@ import { NufakeHomeService } from './nufake-home.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: [
+    './style/frame1.component.scss',
+    './style/frame2.component.scss',
+    './style/frame3.component.scss',
+    './style/frame4.component.scss',
+    './style/frame5.component.scss',
+  ],
 })
 export class HomeComponent implements OnInit {
   cpf: string;
