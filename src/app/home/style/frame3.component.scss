@@ -1,0 +1,80 @@
+.frame3{
+  width: 100vw;
+  height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .description{
+      width: 46%;
+
+      &__Title, &__subDescription{
+      color: #FFF;
+      }
+
+      &__Title{
+        font-size: 2.6em;
+        font-weight: 700;
+        line-height: 1.2em;
+        text-align: left;
+      }
+
+      &__subDescription{
+        font-size: 1.4em;
+        font-weight: 500;
+        line-height: 1.2em;
+        text-align: left;
+        max-width: 56%;
+      }
+
+      &__price{
+
+        color: var(--green);
+
+        width: 24%;
+        height: 26%;
+
+        font-weight: 500;
+        font-size: 12vw;
+        display: flex;
+        align-items: center;
+      }
+    }
+}
+
+
+@media(max-width:760px) {
+  .frame3{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .description{
+      width: 100vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      &__subDescription{
+        max-width: 90vw;
+        text-align: center;
+      }
+
+      &__price{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 28vw;
+
+        margin: 4vh auto;
+      }
+    }
+
+  }
+}

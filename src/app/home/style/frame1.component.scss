@@ -1,0 +1,228 @@
+.frame1{
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+  background: url('../../../assets/happy.svg') no-repeat fixed bottom;
+  background-size: 50vw;
+
+  display: flex;
+  flex-direction: column;
+
+  .gamaImg{
+    width: 56vw;
+    height: 18vh;
+
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+
+    img{
+      width: 290px;
+    }
+
+  }
+
+   .access{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+
+    &__loginLink{
+       margin-left: 4vw;
+
+      &__text{
+        max-width: 280px;
+        line-height: 34px;
+
+        color: #fff;
+
+        font-weight: 500;
+        font-size: 32px;
+
+        > p{
+           margin-bottom: 2vw;
+        }
+      }
+
+      &__link{
+         cursor: pointer;
+
+         background: #fff;
+
+         border-radius: 30px;
+
+         width: 20vw;
+         height: 54px;
+
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
+
+         transition: background-color 0.6s;
+
+        a{
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+
+           margin: 0 2rem;
+           width: 96%;
+           text-decoration: none;
+
+           font-size: 100%;
+           font-weight: 400;
+
+          p{
+             color: var(--purple);
+             margin:auto 0;
+          }
+
+        }
+      }
+
+      &__link:hover{
+         background-color: var(--green);
+      }
+    }
+
+    &__homeFormFields{
+      background: var(--bg-form);
+      border-radius: 8px;
+
+      width: 30vw;
+      height: 70vh;
+
+      margin-right: 2.8vw;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 2vw;
+
+
+      p{
+         font-size: 1.4vw;
+         font-weight: 500;
+      }
+
+      form{
+        display: flex;
+        flex-direction: column;
+
+        input{
+          width: 26vw;
+          height: 5vh;
+
+          margin-bottom: 4%;
+
+          padding: 0.2em 0.8vw;
+
+          border: none;
+          border-bottom: 2px solid var(--gray);
+
+          transition: border-color 0.5s;
+
+          font-size: 1em;
+          font-weight: 400;
+        }
+
+        input:focus{
+          border-color:  var(--purple);
+        }
+      }
+
+      input.ng-invalid.ng-touched{
+        border-bottom: 3px red solid;
+      }
+
+      .invalid-feedback{
+        color: red;
+        font-size: 1vw;
+        font-weight: 500;
+
+        margin: 0;
+        padding: 0;
+        height: 2.4vh;
+      }
+
+
+    }
+
+   }
+}
+
+@media(max-width:760px) {
+  .frame1{
+    background-size: 90vw;
+
+    .gamaImg{
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 0.4em;
+    }
+
+    .access{
+      flex-direction: column;
+
+      &__loginLink{
+
+        width: 94vw;
+
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        &__text{
+          max-width: 94vw;
+          font-size: 4vw;
+          text-align: center;
+          line-height: 3vh;
+          margin: auto;
+        }
+
+        &__link{
+          width: 80vw;
+          margin: 0.4em;
+        }
+      }
+
+      &__homeFormFields{
+        max-width: 760px;
+        width: 80vw;
+        height: 60vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: auto;
+
+        p{
+          margin: auto;
+          font-size: 3vw;
+        }
+
+        form{
+          input{
+            width: 72vw;
+            font-size: 0.8em;
+          }
+        }
+
+        .invalid-feedback{
+          font-size: 0.6em;
+        }
+      }
+    }
+  }
+}

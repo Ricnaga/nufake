@@ -1,0 +1,76 @@
+.frame4{
+  width: 100vw;
+  height: 100vh;
+  background: var(--green) url('../../../assets/galera.svg') no-repeat fixed center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .description{
+    width: 70%;
+
+    &__Title,&__subDescription{
+      color: #fff;
+      width: 28vw;
+      height: 6vh;
+    }
+
+  &__Title{
+
+    font-weight: 700;
+    font-size: 2.6vw;
+    line-height: 2.4vw;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__subDescription{
+
+    font-weight: 500;
+    font-size: 1.4vw;
+    line-height: 3.6vh;
+    display: flex;
+    align-items: center;
+  }
+}
+}
+
+@media(max-width:760px) {
+   .frame4{
+    .description{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+
+      height: 90vh;
+      margin: auto;
+
+      &__Title{
+        width: 90vw;
+        height: 30vh;
+
+        text-align: center;
+        font-size: 12vw;
+        line-height: 12vw;
+      }
+
+      &__subDescription{
+        width: 90vw;
+        height: 30vh;
+
+        display: flex;
+        justify-content: center;
+
+        font-size: 6vw;
+        line-height: 6vw;
+        text-align: center;
+      }
+    }
+  }
+
+}
