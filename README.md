@@ -75,4 +75,4 @@ Gostou? tem alguma sugestão de melhoria? por favor, entre em contato e ja aprov
 
  ## <div align="center">Demonstração</div>
  <div align="center">Eis aqui uma demonstração real do projeto
- <h2><a href="http://nufake.netlify.app">Nufake Bank</a></h2></div>
+ <h2><a href="http://nufakenaga.netlify.app">Nufake Bank</a></h2></div>
