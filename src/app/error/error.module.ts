@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { ErrorRoutingModule } from './error-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    ErrorRoutingModule
-  ]
+    ErrorRoutingModule,
+  ],
 })
 export class ErrorModule { }

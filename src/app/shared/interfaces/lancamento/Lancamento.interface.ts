@@ -1,4 +1,4 @@
-import { PlanoConta } from "./planos-conta/PlanoConta.interface";
+import { PlanoConta } from './planos-conta/PlanoConta.interface';
 
 export interface Lancamento {
   id: number;
@@ -7,5 +7,5 @@ export interface Lancamento {
   conta: number;
   descricao: string;
   planoConta: PlanoConta;
-  tipo: "R" | "D" | "TC" | "TU";
+  tipo: 'R' | 'D' | 'TC' | 'TU';
 }
