@@ -18,13 +18,13 @@
 
         strong{
           height: 30%;
-          font-size: 6vw;
+          font-size: 6.4vw;
         }
 
         &__links{
           width: 26vw;
 
-          button{
+          a{
             width: 8vw;
             height: 8vw;
           }
@@ -89,13 +89,23 @@
           }
 
           &__shopping{
+
+            img{
+              display: none;
+            }
+
             .description{
+
               strong{
                 font-size: 3vw;
               }
 
               &__title{
+                display: flex;
+                flex-direction: column;
+
                 p{
+                  margin:2vw 1vw ;
                   font-size: 4vw;
                 }
               }

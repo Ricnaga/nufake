@@ -20,8 +20,8 @@ export class NufakeHomeService {
     nome,
     senha,
   }: UsuarioDTO) {
-    if (cpf === 12345789 && login === 'mock'
-    && nome === 'mock' && senha === 'mock') {
+    if (login === 'mock'
+      && nome === 'mock' && senha === 'mock') {
       return of({});
     }
 

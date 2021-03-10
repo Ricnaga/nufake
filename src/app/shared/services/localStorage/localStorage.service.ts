@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from '../../interfaces/usuario/Usuario.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  usuario: Usuario
+  usuario: Usuario | null
 
-  token: string;
+  token: string | null;
 
-  senhaTemporaria: string;
+  senhaTemporaria: string| null;
 
-  username: string;
-
-  constructor() { }
+  constructor(
+    private router:Router,
+  ) { }
 
   setUser(usuario: Usuario) {
     this.usuario = usuario;
@@ -73,6 +74,14 @@ export class LocalStorageService {
     }
 
     return null;
+  }
+
+  removeItemsOnStorage() {
+    this.usuario = null;
+    this.token = null;
+    this.senhaTemporaria = null;
+
+    localStorage.clear();
   }
 
   isMember(): boolean {
