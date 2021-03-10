@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { TokenService } from '../services/tokens/token.service';
+import { LocalStorageService } from '../services/localStorage/localStorage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MembersGuard implements CanActivate {
   constructor(
-    private tokenService: TokenService,
+    private localStorageService: LocalStorageService,
     private router:Router,
   ) {}
 
   canActivate(): boolean {
-    const isMember = this.tokenService.isMember();
+    const isMember = this.localStorageService.isMember();
 
     if (isMember) {
       return true;

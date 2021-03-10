@@ -5,7 +5,7 @@ import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Login } from '../shared/interfaces/login/Login.interface';
 import { Sessao } from '../shared/interfaces/Sessao.interface';
-import { TokenService } from '../shared/services/tokens/token.service';
+import { LocalStorageService } from '../shared/services/localStorage/localStorage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class MemberAreaService {
 
   constructor(
     private http: HttpClient,
-    private tokenService: TokenService,
+    private localStorageService: LocalStorageService,
   ) { }
 
   login({ usuario, senha }: Login): Observable<Sessao> {
@@ -30,8 +30,8 @@ export class MemberAreaService {
         senhaTemporaria: 'temporaria',
       };
 
-      this.tokenService.setUser(authenticatedUsuario);
-      this.tokenService.setToken('073G37213c4308Rb3tChbt323cm');
+      this.localStorageService.setUser(authenticatedUsuario);
+      this.localStorageService.setToken('073G37213c4308Rb3tChbt323cm');
 
       return of<Sessao>({
         conta: {
@@ -59,8 +59,8 @@ export class MemberAreaService {
       .pipe(
         tap(
           (response) => {
-            this.tokenService.setUser(response.usuario);
-            this.tokenService.setToken(response.token);
+            this.localStorageService.setUser(response.usuario);
+            this.localStorageService.setToken(response.token);
           },
         ),
       );
