@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { MemberAreaService } from '../member-area/member-area.service';
+import { LocalStorageService } from '../shared/services/localStorage/localStorage.service';
+import { RecoverypassService } from './recoverypass.service';
 
 @Component({
   selector: 'app-recoverypass',
@@ -18,35 +19,37 @@ export class RecoverypassComponent implements OnInit {
   arrowRight = 'seta-acessar.svg'
 
   constructor(
+    private recoverypassService:RecoverypassService,
+    private localStorageService:LocalStorageService,
     private router: Router,
     private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit(): void {
     this.recoveryForm = this.formBuilder.group({
-      usuario: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.minLength(8)]],
+      usuario: ['', [Validators.required, Validators.minLength(4)]],
+      email: ['', [Validators.required, Validators.email]],
     });
   }
 
   onSubmit() {
     this.validateFields();
-    this.login();
+    this.requestNewPassword();
   }
 
-  login() {
-    const recoveredUser = {
+  requestNewPassword() {
+    const newPassword = {
+      login: this.recoveryForm.value.usuario,
       email: this.recoveryForm.value.email,
-      usuario: this.recoveryForm.value.usuario,
     };
 
-    // this.memberAreaService.login(userLogin)
-    //   .pipe(
-    //     take(1),
-    //   ).subscribe(
-    //     (response) => this.loginSuccess(),
-    //     (error) => this.loginError(error),
-    //   );
+    this.recoverypassService.solicitarNovaSenha(newPassword)
+      .pipe(
+        take(1),
+      ).subscribe(
+        (response) => this.sendToNewPasswordRequest(response),
+        (error) => this.loginError(error),
+      );
   }
 
   validateFields() {
@@ -68,12 +71,13 @@ export class RecoverypassComponent implements OnInit {
     return this.recoveryForm.get(nameField)?.invalid && this.recoveryForm.get(nameField)?.touched;
   }
 
-  loginSuccess() {
-    this.router.navigate(['login']);
+  sendToNewPasswordRequest(senhaTemporaria: string) {
+    this.localStorageService.setTempPassword(senhaTemporaria);
+    this.router.navigate(['changepassword']);
   }
 
   loginError(error: string) {
     this.router.navigate(['error']);
-    throwError('Ocorreu um erro durante a recuperaçãoe senha, por favor tente novamente');
+    throwError('Ocorreu um erro durante a recuperação de senha, por favor tente novamente');
   }
 }

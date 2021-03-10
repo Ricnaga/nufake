@@ -8,9 +8,9 @@ describe('MemberAreaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MemberAreaComponent ]
+      declarations: [MemberAreaComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

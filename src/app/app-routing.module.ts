@@ -15,6 +15,11 @@ const routes: Routes = [
     canActivate: [UsersGuard],
   },
   {
+    path: 'changepassword',
+    loadChildren: () => import('./recoverypass/changepassword/changepassword.module').then((m) => m.ChangepasswordModule),
+    canActivate: [UsersGuard],
+  },
+  {
     path: 'login',
     loadChildren: () => import('./member-area/member-area.module').then((m) => m.MemberAreaModule),
     canActivate: [UsersGuard],

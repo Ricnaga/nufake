@@ -4,10 +4,12 @@ import { Usuario } from '../../interfaces/usuario/Usuario.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class TokenService {
+export class LocalStorageService {
   usuario: Usuario
 
   token: string;
+
+  senhaTemporaria: string;
 
   username: string;
 
@@ -51,6 +53,26 @@ export class TokenService {
     }
 
     return 'TOKEN INVÁLIDO';
+  }
+
+  setTempPassword(senhaTemporaria: string) {
+    this.senhaTemporaria = senhaTemporaria;
+    localStorage.setItem('senhaTemporaria', senhaTemporaria);
+  }
+
+  getTempPassword() {
+    if (this.senhaTemporaria) {
+      return this.senhaTemporaria;
+    }
+
+    const userSenhaTemporaria = localStorage.getItem('senhaTemporaria');
+
+    if (userSenhaTemporaria) {
+      this.senhaTemporaria = userSenhaTemporaria;
+      return this.senhaTemporaria;
+    }
+
+    return 'SENHA TEMPORARIA INVALIDA';
   }
 
   isMember(): boolean {
