@@ -9,9 +9,9 @@ import { RecoverypassRoutingModule } from './recoverypass-routing.module';
   declarations: [ChangepasswordComponent],
   imports: [
     CommonModule,
-    SharedModule,
     RecoverypassRoutingModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
 })
 export class RecoverypassModule { }

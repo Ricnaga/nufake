@@ -1,7 +1,7 @@
-import { Lancamento } from "./lancamento/Lancamento.interface";
+import { Lancamento } from './lancamento/Lancamento.interface';
 
 export interface ContaDTO{
-  id:string;
+  id:number;
   saldo:number;
   lancamentos:Array<Lancamento>;
 }
