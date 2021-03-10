@@ -10,6 +10,7 @@ import { NufakeHomeService } from './nufake-home.service';
   templateUrl: './home.component.html',
   styleUrls: [
     './style/frame1.component.scss',
+    './style/frame1-mobile.component.scss',
     './style/frame2.component.scss',
     './style/frame3.component.scss',
     './style/frame4.component.scss',

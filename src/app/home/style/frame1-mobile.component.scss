@@ -1,0 +1,70 @@
+@media(max-width:760px) {
+  .frame1{
+    background-size: 90vw;
+
+    .gamaImg{
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 0.4em;
+    }
+
+    .access{
+      flex-direction: column;
+
+      &__loginLink{
+
+        width: 94vw;
+
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        &__text{
+          max-width: 94vw;
+          font-size: 4vw;
+          text-align: center;
+          line-height: 3vh;
+          margin: auto;
+        }
+
+        &__link{
+          width: 80vw;
+          margin: 0.4em;
+        }
+      }
+
+      &__homeFormFields{
+        max-width: 760px;
+        width: 80vw;
+        height: 60vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: auto;
+
+        p{
+          margin: auto;
+          font-size: 3vw;
+        }
+
+        form{
+          input{
+            width: 72vw;
+            font-size: 0.8em;
+          }
+        }
+
+        .invalid-feedback{
+          font-size: 0.6em;
+        }
+      }
+    }
+  }
+}
