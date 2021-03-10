@@ -1,0 +1,3 @@
+[[redirects]]
+/ src/app/home/home.component.html
+/home src/app/home/home.component.html

@@ -6,11 +6,11 @@
 
     <div class="main-content__welcome">
 
-      <p>Olá <strong>Usuário</strong>, seja bem vindo!</p>
+      <p>Olá <strong *ngIf="this.user">{{this.user.nome}}</strong>, seja bem vindo!</p>
 
       <div class="main-content__welcome__links">
-        <button routerLink="/dashboard" ><img src="assets/refresh-cw.svg" alt="Refresh page"></button>
-        <button routerLink="/home" (click)="logout()"><img src="assets/log-out.svg" alt="Log out"></button>
+        <a routerLink="/dashboard"><img src="assets/refresh-cw.svg" alt="Refresh page"></a>
+        <a routerLink="/login" (click)="logout()"><img src="assets/log-out.svg" alt="Log out"></a>
       </div>
     </div>
 
@@ -25,11 +25,11 @@
 
         <div class="main-content__data__current-account__balance">
           <p>Saldo disponível</p>
-          <strong>10000</strong>
+          <strong>{{dashboard.contaBanco.saldo | currency: 'BRL'}}</strong>
         </div>
 
         <div class="main-content__data__current-account__transactions">
-          <p>Transações</p><strong>15000</strong>
+          <p>Transações</p><strong>{{15000 | currency: 'BRL'}}</strong>
         </div>
 
       </div>
@@ -43,11 +43,11 @@
 
         <div class="main-content__data__savings-account__balance">
           <p>Fatura atual</p>
-          <strong>10000</strong>
+          <strong>{{dashboard.contaCredito.saldo | currency:'BRL'}}</strong>
         </div>
 
         <div class="main-content__data__savings-account__transactions">
-          <p>Limite disponível</p><strong>15000</strong>
+          <p>Limite disponível</p><strong>{{15000 | currency: 'BRL'}}</strong>
         </div>
       </div>
 
@@ -63,14 +63,29 @@
 
         <img src="assets/credit-card2.svg" alt="Icon Releases">
 
-        <div class="description">
+        <div class="description" *ngFor="let lancamento of this.dashboard.contaBanco.lancamentos">
 
           <div class="description__title">
-            <strong>Compra no débito</strong> <p>Dia 24 de Jan.</p>
+            <strong>{{lancamento.descricao}}</strong>
+            <p>{{lancamento.data | date: 'dd-MM-yyyy'}}</p>
           </div>
 
-          <p>Gama Academy</p>
-          <strong>298,55</strong>
+          <p>{{lancamento.planoConta.descricao}}</p>
+          <strong>{{lancamento.valor | currency: 'BRL'}}</strong>
+
+        </div>
+
+        <img src="assets/credit-card2.svg" alt="Icon Releases">
+
+        <div class="description" *ngFor="let lancamento of this.dashboard.contaCredito.lancamentos">
+
+          <div class="description__title">
+            <strong>{{lancamento.descricao}}</strong>
+            <p>{{lancamento.data}}</p>
+          </div>
+
+          <p>{{lancamento.planoConta.descricao}}</p>
+          <strong>{{lancamento.valor | currency: 'BRL'}}</strong>
 
         </div>
       </div>

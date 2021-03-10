@@ -30,46 +30,46 @@ export class DashboardService {
     if (this.userDashboard === 'mock') {
       return of({
         contaBanco: {
-          id: 0,
+          id: 1,
           lancamentos: [
             {
               conta: 1,
               data: this.getData(),
-              descricao: 'Lançamento de conta banco',
+              descricao: 'Compra no débito',
               id: 1,
               planoConta: {
-                descricao: 'Plano conta de conta banco',
+                descricao: 'Gama Academy',
                 id: 1,
                 login: 'mock',
                 padrao: true,
                 tipoMovimento: 'R',
               },
               tipo: 'R',
-              valor: 15000,
+              valor: 298.58,
             },
           ],
-          saldo: 0,
+          saldo: 15520.50,
         },
         contaCredito: {
-          id: 0,
+          id: 1,
           lancamentos: [
             {
-              conta: 0,
+              conta: 1,
               data: this.getData(),
-              descricao: 'Lançamentos de conta crédito',
-              id: 0,
+              descricao: 'Compra no crédito',
+              id: 1,
               planoConta: {
-                descricao: 'Plano conta de conta crédito',
-                id: 0,
+                descricao: 'Accenture',
+                id: 1,
                 login: 'mock',
                 padrao: true,
                 tipoMovimento: 'R',
               },
               tipo: 'R',
-              valor: 10000,
+              valor: 1358.27,
             },
           ],
-          saldo: 35880,
+          saldo: 35880.5,
         },
       });
     }
@@ -86,8 +86,22 @@ export class DashboardService {
   }
 
   getData(): string {
-    return `${new Date().getFullYear()}-
-    ${new Date().toLocaleString('pt-BR', { month: '2-digit' })}-
-    ${new Date().toLocaleString('pt-BR', { day: '2-digit' })}`;
+    return `${new Date().getFullYear()}-${new Date().toLocaleString('pt-BR', { month: '2-digit' })}-${new Date().toLocaleString('pt-BR', { day: '2-digit' })}`;
   }
+
+  // getPlanosConta(): Observable<PlanoConta[]> {
+  //   const httpParams = new HttpParams({
+  //     fromObject: {
+  //       login: 'mandre',
+  //     },
+  //   });
+
+  //   return this.http.get<PlanoConta[]>(`${this.API_URL}/lancamentos/planos-conta`, { params: httpParams });
+  // }
+
+  // planosConta(conta: Omit<PlanoConta, 'id'|'padrao'>) {
+  //   const { descricao, login, tipoMovimento } = conta;
+
+  //   return this.http.post(`${this.API_URL}/lancamentos/planos-conta`, { descricao, login, tipoMovimento });
+  // }
 }
