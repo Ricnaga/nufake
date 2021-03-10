@@ -1,4 +1,4 @@
-import { ContaDTO } from "./ContaDTO.interface";
+import { ContaDTO } from './ContaDTO.interface';
 
 export interface Dashboard {
   contaBanco: ContaDTO;

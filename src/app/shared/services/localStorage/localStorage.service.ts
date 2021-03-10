@@ -52,7 +52,7 @@ export class LocalStorageService {
       return this.token;
     }
 
-    return 'TOKEN INVÁLIDO';
+    return null;
   }
 
   setTempPassword(senhaTemporaria: string) {
@@ -72,7 +72,7 @@ export class LocalStorageService {
       return this.senhaTemporaria;
     }
 
-    return 'SENHA TEMPORARIA INVALIDA';
+    return null;
   }
 
   isMember(): boolean {
