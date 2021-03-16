@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
       senha: this.password,
     };
 
-    this.nufakeHomeService.criarConta(newUser)
+    this.nufakeHomeService.mockCriarConta(newUser)
       .pipe(
         take(1),
       ).subscribe(
