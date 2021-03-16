@@ -17,8 +17,20 @@ const routes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
+        path: 'deposit',
+        loadChildren: () => import('./deposit/deposit.module').then((m) => m.DepositModule),
+      },
+      {
         path: 'plans',
         loadChildren: () => import('./plans/plans.module').then((m) => m.PlansModule),
+      },
+      {
+        path: 'payments',
+        loadChildren: () => import('./payments/payments.module').then((m) => m.PaymentsModule),
+      },
+      {
+        path: 'transactions',
+        loadChildren: () => import('./transactions/transactions.module').then((m) => m.TransactionsModule),
       },
     ],
   },
