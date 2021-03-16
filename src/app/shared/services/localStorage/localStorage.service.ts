@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Usuario } from '../../interfaces/usuario/Usuario.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  usuario: Usuario | null
+  usuario: Usuario | null;
 
   token: string | null;
 
   senhaTemporaria: string| null;
 
   constructor(
-    private router:Router,
   ) { }
 
   setUser(usuario: Usuario) {

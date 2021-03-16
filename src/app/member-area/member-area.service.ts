@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Login } from '../shared/interfaces/login/Login.interface';
-import { Sessao } from '../shared/interfaces/Sessao.interface';
+import { Dashboard } from '../shared/interfaces/Dashboard.interface';
 import { LocalStorageService } from '../shared/services/localStorage/localStorage.service';
+import { MockLocalStorageService } from '../shared/services/mockLocalStorage/mock-local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,56 +12,29 @@ import { LocalStorageService } from '../shared/services/localStorage/localStorag
 export class MemberAreaService {
   API_URL = environment.API_URL
 
+  userDashboard: string
+
   constructor(
     private http: HttpClient,
     private localStorageService: LocalStorageService,
+    private mockLocalStorage: MockLocalStorageService,
   ) { }
 
-  login({ usuario, senha }: Login): Observable<Sessao> {
-    if (usuario === 'mock' && senha === 'mock') {
-      const authenticatedUsuario = {
-        cpf: '123456789',
-        id: 1,
-        login: 'mock',
-        nome: 'mock',
-        redefinirSenha: false,
-        senha: 'mock',
-        senhaTemporaria: 'temporaria',
-      };
+  // getPlanosConta(): Observable<PlanoConta[]> {
+  //   const httpParams = new HttpParams({
+  //     fromObject: {
+  //       login: 'mandre',
+  //     },
+  //   });
 
-      this.localStorageService.setUser(authenticatedUsuario);
-      this.localStorageService.setToken('073G37213c4308Rb3tChbt323cm');
+  //   return this.http.get<PlanoConta[]>(`${this.API_URL}/lancamentos/planos-conta`,
+  //     { params: httpParams });
+  // }
 
-      return of<Sessao>({
-        conta: {
-          descricao: 'Conta de usuário mock',
-          id: 1,
-          numero: '001',
-          saldo: 25000,
-          tipo: 'CC',
-        },
-        contaCredito: {
-          descricao: 'Conta Crédito de usuário mock',
-          id: 1,
-          numero: '001',
-          saldo: 15000,
-          tipo: 'CB',
-        },
-        dataFim: '2021-03-09T19:19:41.130Z',
-        dataInicio: '2021-03-09T19:19:41.130Z',
-        token: '073G37213c4308Rb3tChbt323cm',
-        usuario: authenticatedUsuario,
-      });
-    }
+  // planosConta(conta: Omit<PlanoConta, 'id'|'padrao'>) {
+  //   const { descricao, login, tipoMovimento } = conta;
 
-    return this.http.post<Sessao>(`${this.API_URL}/login`, { usuario, senha })
-      .pipe(
-        tap(
-          (response) => {
-            this.localStorageService.setUser(response.usuario);
-            this.localStorageService.setToken(response.token);
-          },
-        ),
-      );
-  }
+  //   return this.http.post(`${this.API_URL}/lancamentos/planos-conta`,
+  //     { descricao, login, tipoMovimento });
+  // }
 }

@@ -1,18 +1,5 @@
 <div class="dashboard-main">
-
-  <app-dashboard-menu></app-dashboard-menu>
-
   <div class="main-content">
-
-    <div class="main-content__welcome">
-
-      <p>Olá <strong *ngIf="this.user">{{this.user.nome}}</strong>, seja bem vindo!</p>
-
-      <div class="main-content__welcome__links">
-        <a routerLink="/dashboard"><img src="assets/refresh-cw.svg" alt="Refresh page"></a>
-        <a routerLink="/login" (click)="logout()"><img src="assets/log-out.svg" alt="Log out"></a>
-      </div>
-    </div>
 
     <div class="main-content__data">
 
@@ -20,7 +7,7 @@
 
         <div class="main-content__data__current-account__title">
           <img src="assets/Group.svg" alt="Icon Conta">
-          <p>Conta</p>
+          <p>Conta {{dashboard.contaBanco.id}}</p>
         </div>
 
         <div class="main-content__data__current-account__balance">
@@ -38,7 +25,7 @@
 
         <div class="main-content__data__savings-account__title">
           <img src="assets/credit-card1.svg" alt="Icon Conta">
-          <p>Conta Crédito</p>
+          <p>Conta Crédito {{dashboard.contaCredito.id}}</p>
         </div>
 
         <div class="main-content__data__savings-account__balance">
@@ -61,7 +48,7 @@
 
       <div class="main-content__last-release__shopping">
 
-        <img src="assets/credit-card2.svg" alt="Icon Releases">
+        <img *ngIf="!this.dashboard.contaBanco.lancamentos" src="assets/credit-card2.svg" alt="Icon Releases">
 
         <div class="description" *ngFor="let lancamento of this.dashboard.contaBanco.lancamentos">
 
@@ -75,13 +62,13 @@
 
         </div>
 
-        <img src="assets/credit-card2.svg" alt="Icon Releases">
+        <img *ngIf="!this.dashboard.contaCredito.lancamentos" src="assets/credit-card2.svg" alt="Icon Releases">
 
         <div class="description" *ngFor="let lancamento of this.dashboard.contaCredito.lancamentos">
 
           <div class="description__title">
             <strong>{{lancamento.descricao}}</strong>
-            <p>{{lancamento.data}}</p>
+            <p>{{lancamento.data | date: 'dd-MM-yyyy'}}</p>
           </div>
 
           <p>{{lancamento.planoConta.descricao}}</p>
@@ -92,5 +79,4 @@
 
     </div>
   </div>
-
 </div>
