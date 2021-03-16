@@ -1,4 +1,2 @@
 [[redirects]]
-from = src/app/home/home.component.html
-to = "https://nufakenaga.netlify.app"
-status = 200
+/* /index.html 200

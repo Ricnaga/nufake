@@ -1,0 +1,39 @@
+@media(max-width:760px){
+  .dashboard-main{
+    flex-direction: column-reverse;
+
+    .main-content{
+      width: 90vw;
+
+      &__welcome{
+        p{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          height: 100%;
+
+          font-size: 4vw;
+        }
+
+        strong{
+          height: 30%;
+          font-size: 6.4vw;
+        }
+
+        &__links{
+          width: 26vw;
+
+          a{
+            width: 8vw;
+            height: 8vw;
+          }
+        }
+
+
+      }
+
+    }
+  }
+
+}

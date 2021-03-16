@@ -5,7 +5,22 @@ import { MemberAreaComponent } from './member-area.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
     component: MemberAreaComponent,
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      },
+      {
+        path: 'plans',
+        loadChildren: () => import('./plans/plans.module').then((m) => m.PlansModule),
+      },
+    ],
   },
 ];
 

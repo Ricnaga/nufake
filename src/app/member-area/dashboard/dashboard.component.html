@@ -1,0 +1,82 @@
+<div class="dashboard-main">
+  <div class="main-content">
+
+    <div class="main-content__data">
+
+      <div class="main-content__data__current-account">
+
+        <div class="main-content__data__current-account__title">
+          <img src="assets/Group.svg" alt="Icon Conta">
+          <p>Conta {{dashboard.contaBanco.id}}</p>
+        </div>
+
+        <div class="main-content__data__current-account__balance">
+          <p>Saldo disponível</p>
+          <strong>{{dashboard.contaBanco.saldo | currency: 'BRL'}}</strong>
+        </div>
+
+        <div class="main-content__data__current-account__transactions">
+          <p>Transações</p><strong>{{15000 | currency: 'BRL'}}</strong>
+        </div>
+
+      </div>
+
+      <div class="main-content__data__savings-account">
+
+        <div class="main-content__data__savings-account__title">
+          <img src="assets/credit-card1.svg" alt="Icon Conta">
+          <p>Conta Crédito {{dashboard.contaCredito.id}}</p>
+        </div>
+
+        <div class="main-content__data__savings-account__balance">
+          <p>Fatura atual</p>
+          <strong>{{dashboard.contaCredito.saldo | currency:'BRL'}}</strong>
+        </div>
+
+        <div class="main-content__data__savings-account__transactions">
+          <p>Limite disponível</p><strong>{{15000 | currency: 'BRL'}}</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="main-content__last-release">
+      <div class="main-content__last-release__title">
+        <img src="assets/Group.svg" alt="Icon Releases">
+        <p>Últimos lançamentos</p>
+      </div>
+
+      <div class="main-content__last-release__shopping">
+
+        <img *ngIf="!this.dashboard.contaBanco.lancamentos" src="assets/credit-card2.svg" alt="Icon Releases">
+
+        <div class="description" *ngFor="let lancamento of this.dashboard.contaBanco.lancamentos">
+
+          <div class="description__title">
+            <strong>{{lancamento.descricao}}</strong>
+            <p>{{lancamento.data | date: 'dd-MM-yyyy'}}</p>
+          </div>
+
+          <p>{{lancamento.planoConta.descricao}}</p>
+          <strong>{{lancamento.valor | currency: 'BRL'}}</strong>
+
+        </div>
+
+        <img *ngIf="!this.dashboard.contaCredito.lancamentos" src="assets/credit-card2.svg" alt="Icon Releases">
+
+        <div class="description" *ngFor="let lancamento of this.dashboard.contaCredito.lancamentos">
+
+          <div class="description__title">
+            <strong>{{lancamento.descricao}}</strong>
+            <p>{{lancamento.data | date: 'dd-MM-yyyy'}}</p>
+          </div>
+
+          <p>{{lancamento.planoConta.descricao}}</p>
+          <strong>{{lancamento.valor | currency: 'BRL'}}</strong>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

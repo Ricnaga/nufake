@@ -1,33 +1,21 @@
-<div class="memberArea">
+<div class="dashboard-main">
 
-  <div class="memberArea__gama-logo">
-    <img src="assets/{{imageLogo}}" alt="Gama Academy logo">
-  </div>
+  <app-dashboard-menu></app-dashboard-menu>
 
-  <div class="loginArea">
-    <div class="loginArea__title">
-      <p>Faça seu login</p>
-    </div>
+  <div class="main-content">
 
-    <div class="loginArea__formFields">
-      <form [formGroup]="loginForm">
-        <input class="form-control" [class.is-invalid]="showError('usuario')" type="text" placeholder="Digite seu usuário"
-          formControlName="usuario">
+    <div class="main-content__welcome">
 
-        <input class="form-control" [class.is-invalid]="showError('senha')" type="password"
-          placeholder="Digite sua senha" formControlName="senha">
+      <p>Olá <strong *ngIf="this.user">{{this.user.nome}}</strong>, seja bem vindo!</p>
 
-        <submit-button-field (click)="onSubmit()" customText="Continuar"></submit-button-field>
-      </form>
-
-      <div class="loginArea__formFields__links">
-        <a routerLink="/recovery">Esqueci minha senha <img src="assets/seta-continuar.svg" alt="Esqueci a senha">
-        </a>
-        <a routerLink="/home">Ainda não sou cliente <img src="assets/seta-continuar.svg"
-            alt="Ainda não sou cliente"></a>
+      <div class="main-content__welcome__links">
+        <a routerLink="/dashboard"><img src="assets/refresh-cw.svg" alt="Refresh page"></a>
+        <a routerLink="/login" (click)="logout()"><img src="assets/log-out.svg" alt="Log out"></a>
       </div>
-
     </div>
+
+    <router-outlet></router-outlet>
+
   </div>
 
 </div>

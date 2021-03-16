@@ -1,82 +1,100 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder, FormControl, FormGroup, NgForm, Validators,
-} from '@angular/forms';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { Dashboard } from '../shared/interfaces/Dashboard.interface';
+import { Usuario } from '../shared/interfaces/usuario/Usuario.interface';
+import { LocalStorageService } from '../shared/services/localStorage/localStorage.service';
 import { MemberAreaService } from './member-area.service';
 
 @Component({
-  selector: 'app-member-area',
+  selector: 'app-dashboard',
   templateUrl: './member-area.component.html',
-  styleUrls: ['./member-area.component.scss'],
+  styleUrls: [
+    './style/member-area.component.scss',
+    './style/member-area-mobile.component.scss',
+  ],
 })
 export class MemberAreaComponent implements OnInit {
-  loginForm: FormGroup;
+  dashboard: Dashboard;
 
-  imageLogo = 'gama-academy-logo-horizontal-verde-branco1 1.svg'
-
-  arrowRight = 'seta-acessar.svg'
+  user: Usuario | null;
 
   constructor(
-    private router: Router,
-    private formBuilder: FormBuilder,
     private memberAreaService: MemberAreaService,
+    private router: Router,
+    private localStorageservice: LocalStorageService,
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      usuario: ['', [Validators.required, Validators.minLength(4)]],
-      senha: ['', [Validators.required, Validators.minLength(4)]],
-    });
-  }
+    const user = this.localStorageservice.getUser();
 
-  onSubmit() {
-    this.validateFields();
-    this.login();
-  }
-
-  login() {
-    const userLogin = {
-      senha: this.loginForm.value.senha,
-      usuario: this.loginForm.value.usuario,
-    };
-
-    this.memberAreaService.login(userLogin)
-      .pipe(
-        take(1),
-      ).subscribe(
-        (response) => this.loginSuccess(),
-        (error) => this.loginError(error),
-      );
-  }
-
-  validateFields() {
-    if (this.loginForm.invalid) {
-      Object.keys(
-        this.loginForm.controls,
-      ).forEach((field) => {
-        const loginField = this.loginForm.get(field);
-        loginField?.markAsTouched();
-      });
+    if (user) {
+      this.user = this.localStorageservice.getUser();
     }
   }
 
-  showError(nameField: string) {
-    if (!this.loginForm.get(nameField)) {
-      return false;
-    }
+  // Chamando a API para getPlanosConta
+  // this.listaPlanos()
 
-    return this.loginForm.get(nameField)?.invalid && this.loginForm.get(nameField)?.touched;
-  }
+  // Chamando a API para criação de plano
+  // valores pegos dos campos
+  // this.criaPlanos("Salario do mês", "mandre", "D")
 
-  loginSuccess() {
-    this.router.navigate(['dashboard']);
-  }
+  // Chamando a API de lançamentos
+  // this.criaLancamento()
 
-  loginError(error: string) {
-    this.router.navigate(['error']);
-    throwError('Ocorreu um erro durante o login, por favor tente novamente');
+  // listaPlanos() {
+  //   this.nufakeDash.getPlanosConta()
+  //     .pipe(
+  //       take(1)
+  //     ).subscribe(
+  //       response => this.planoConta = response
+  //     )
+  // }
+
+  // criaPlanos(descricao: string, login: string, tipoMovimento: string) {
+  //   this.nufakeDash.planosConta({ descricao, login, tipoMovimento })
+  //     .pipe(
+  //       take(1)
+  //     ).subscribe(
+  //       response => this.onCreatePlansSuccess(),
+  //       error => this.onErrorOnDashboard()
+  //     )
+  // }
+
+  // criaLancamento() {
+
+  //   // Esses valores são pegos dos campos dos lançamento
+  //   this.nufakeDash.lancamentos({
+  //     conta: 827,
+  //     data: "2021-02-27",
+  //     descricao: "PAGAMENTO CONTA DE INTERNET",
+  //     login: "mandre",
+  //     planoConta: 1610,
+  //     valor: 1500
+  //   })
+  //     .pipe(
+  //       take(1)
+  //     ).subscribe(
+  //       response => this.onCreateLancamentos(),
+  //       error => this.onErrorOnDashboard()
+  //     )
+  // }
+
+  // onCreatePlansSuccess() {
+  //   console.log("Criação de plano bem sucedida")
+  // }
+
+  // onCreateLancamentos() {
+  //   console.log("Lançamento realizado com sucesso")
+  // }
+
+  // onErrorOnDashboard() {
+  //   console.log("OOps!, algo de errado aconteceu")
+  // }
+
+  logout() {
+    this.localStorageservice.removeItemsOnStorage();
+    this.router.navigate(['login']);
   }
 }
