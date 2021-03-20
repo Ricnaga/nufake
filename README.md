@@ -13,9 +13,10 @@
 #### 5. Utlização de guardas de rotas
 #### 6. Lidar com interceptadores de token
 #### 7. Acesso a páginas por rotas
-#### 8. Formulários reativo
-#### 9. Formulários template driven
-#### 10. Chamadas a API como GET | POST
+#### 8. Utilização de rotasfilhas
+#### 9. Formulários reativo
+#### 10. Formulários template driven
+#### 11. Chamadas a API como GET | POST
 #### 12. Modularização e lazy loading
 #### 13. Deploy da aplicação no Netlify
 #
